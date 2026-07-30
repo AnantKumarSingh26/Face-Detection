@@ -2,7 +2,7 @@ const userModel = require('../models/user.model');
 const jwt = require('jsonwebtoken');
 
 
-async function getMe(req, res) {
+async function authUser(req, res, next) {
     try {
         const token = req.cookies.token;
         if (!token) {
@@ -13,7 +13,7 @@ async function getMe(req, res) {
             req.user = decoded;
             next();
         }catch (error) {
-            return res.status(401).json({ message: "Invalid Token" });
+            return res.status(401).json({message: `${error} `});
         }
     }
     catch (error) {
@@ -23,5 +23,5 @@ async function getMe(req, res) {
 }
 
 module.exports = {
-    getMe
+    authUser
 };
