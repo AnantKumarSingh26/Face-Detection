@@ -85,7 +85,7 @@ async function logoutUser(req, res) {
     }
     res.clearCookie('token');
 
-    await redis.set(token, Date.now().toString()); // Set the token in Redis with an expiration time of 1 hour
+    await redis.set(token, Date.now().toString(), 'EX', 3600); // Set the token in Redis with an expiration time of 1 hour
 
     res.status(200).json({ message: "User logged out successfully" });
 }
