@@ -1,6 +1,7 @@
 const userModel = require('../models/user.model');
 const bcrypt = require('bcryptjs');
 const blacklistModel = require('../models/blacklist.model');
+const redis = require('../config/cache'); //Redis cache
 
 const jwt = require('jsonwebtoken');
 
@@ -83,8 +84,8 @@ async function logoutUser(req, res) {
         return res.status(400).json({ message: "No token found" });
     }
     res.clearCookie('token');
-    
-    await blacklistModel.create({ token });
+
+    await redis.set(token, Date.now().toString()); // Set the token in Redis with an expiration time of 1 hour
 
     res.status(200).json({ message: "User logged out successfully" });
 }
