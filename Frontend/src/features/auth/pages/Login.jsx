@@ -1,21 +1,20 @@
-
+import FormGroup from '../components/FormGroup'
 import '../styles/login.scss'
+import { Link } from 'react-router'
 
 const Login = () => {
   return (
     <main className='login-page'>
       <div className="form-container">
+        <h1>Login</h1>
         <form>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" name="password" required />
-          </div>
+          <FormGroup label="Email" placeholder="Enter your email" />
+          <FormGroup label="Password" placeholder="Enter your password" />
           <button className='button' type="submit">Login</button>
         </form>
+        <div className="link-container">
+          <p>Don't have an account?</p>         <Link to="/register">Register</Link>
+        </div>
       </div>
     </main>
   )

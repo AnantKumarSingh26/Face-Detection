@@ -1,4 +1,4 @@
-.login-page {
+.register-page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,23 +6,22 @@
   .form-container {
     display: flex;
     flex-direction: column;
-
     gap: 1rem;
     padding: 2rem;
     border-radius: 0.5rem;
     width: 100%;
     max-width: 400px;
   }
-    .link-container{
+  .link-container{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
     a{
         text-decoration: none;
-        color: #4de316;
+        color: #46e316;
         font-weight: normal;
-         &:active{
+        &:active{
             color: #d65c00;
         }
     }
