@@ -1,10 +1,12 @@
-import { useState } from 'react'
-import ExpressionTracker from './features/Expression/pages/FaceExpression'
+import {RouterProvider} from "react-router";
+import {router} from "./app.routes";
+import '../src/features/shared/styles/global.scss'
+
 
 function App() {
 
   return (
-    <ExpressionTracker/>
+    <RouterProvider router={router} />
   )
 }
 
