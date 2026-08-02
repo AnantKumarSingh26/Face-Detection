@@ -44,18 +44,22 @@ async function loginUser(req, res) {
         const user = await userModel.findOne(
             { $or: [{ email }, { username }] }
         ).select('+password'); // Include the password field in the query result
+
         if (!user) {
             return res.status(400).json({ message: "Invalid Credentials" }); //! User not found
         }
+
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
             return res.status(400).json({ message: "Invalid Credentials" }); //! Password does not match
         }
+
         const token = jwt.sign(
             { id: user._id, username: user.username },
             process.env.JWT_SECRET,
             { expiresIn: '1h' }
         )
+        
         res.cookie('token', token);
 
         return res.status(200).json(
