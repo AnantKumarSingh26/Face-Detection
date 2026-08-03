@@ -13,9 +13,9 @@ const Protected = ({ children }) => {
     if (loading) {
         return <h1>Loading...</h1>
     }
-if(!loading && !user){
-    return <Navigate to="/login"/>
-}
+    if (!loading && !user) {
+        return <Navigate to="/login" />
+    }
 
     return children
 }
