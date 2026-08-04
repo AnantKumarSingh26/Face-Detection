@@ -2,7 +2,8 @@
 
 An interactive full-stack web application that uses computer vision and real-time facial expression recognition to detect user emotions and automatically play matching curated music.
 
-![Moodify AI Banner](https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop)
+
+![Moodify Homepage](image-1.png)
 
 ---
 
